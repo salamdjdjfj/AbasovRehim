@@ -135,8 +135,8 @@ async def skip(_, message: Message):
     global que
     chat_id = message.chat.id
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS.append(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALLS:
+        ACTV_CALL.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALL:
         await message.reply_text("❌ **no music is currently playing**")
     else:
         queues.task_done(chat_id)
