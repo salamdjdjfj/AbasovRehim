@@ -20,6 +20,7 @@ from pyrogram.types import (
     Message,
 )
 
+ACTV_CALLS = []
 
 @Client.on_message()
 async def _(bot: Client, cmd: Message):
@@ -82,10 +83,9 @@ async def controlset(_, message: Message):
 @authorized_users_only
 async def pause(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    ACTV_CALL = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALL(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALL:
+        ACTV_CALLS(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❌ **no music is currently playing**")
     else:
         await callsmusic.pytgcalls.pause_stream(chat_id)
@@ -99,10 +99,9 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    ACTV_CALL = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALL(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALL:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❌ **no music is paused**")
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
@@ -116,10 +115,9 @@ async def resume(_, message: Message):
 @authorized_users_only
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    ACTV_CALL = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALL(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALL:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❌ **no music is currently playing**")
     else:
         try:
@@ -136,9 +134,8 @@ async def stop(_, message: Message):
 async def skip(_, message: Message):
     global que
     chat_id = message.chat.id
-    ACTV_CALLS = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS(int(x.chat_id))
+        ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❌ **no music is currently playing**")
     else:
@@ -232,10 +229,9 @@ async def cbpause(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin can tap this button !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
-    ACTV_CALL = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALL(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALL:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
             "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
         )
@@ -252,10 +248,9 @@ async def cbresume(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin can tap this button !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
-    ACTV_CALL = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALL(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALL:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
             "❌ **no music is paused**", reply_markup=BACK_BUTTON
         )
@@ -272,10 +267,9 @@ async def cbend(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin can tap this button !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
-    ACTV_CALL = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALL(int(x.chat_id))
-    if int(chat_id) not in ACTV_CALL:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
             "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
         )
@@ -299,9 +293,8 @@ async def cbskip(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin can tap this button !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
-    ACTV_CALLS = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS(int(x.chat_id))
+        ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
             "❌ **no music is currently playing**", reply_markup=BACK_BUTTON

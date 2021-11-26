@@ -44,7 +44,7 @@ from youtube_search import YoutubeSearch
 chat_id = None
 DISABLED_GROUPS = []
 useer = "NaN"
-
+ACTV_CALLS = []
 
 
 def cb_admin_check(func: Callable) -> Callable:
@@ -334,9 +334,8 @@ async def m_cb(b, cb):
 
     cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "pause":
-        ACTV_CALLS = {}
         for x in callsmusic.pytgcalls.active_calls:
-            ACTV_CALLS(int(x.chat_id))
+            ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer(
                 "userbot is not connected to voice chat.", show_alert=True
@@ -350,9 +349,8 @@ async def m_cb(b, cb):
             )
 
     elif type_ == "play":
-        ACTV_CALLS = {}
         for x in callsmusic.pytgcalls.active_calls:
-            ACTV_CALLS(int(x.chat_id))
+            ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer(
                 "userbot is not connected to voice chat.", show_alert=True
@@ -390,9 +388,8 @@ async def m_cb(b, cb):
 
     elif type_ == "resume":
         psn = "▶ music playback has resumed"
-        ACTV_CALLS = {}
         for x in callsmusic.pytgcalls.active_calls:
-            ACTV_CALLS(int(x.chat_id))
+            ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer(
                 "voice chat is not connected or already playing", show_alert=True
@@ -403,9 +400,8 @@ async def m_cb(b, cb):
 
     elif type_ == "puse":
         spn = "⏸ music playback has paused"
-        ACTV_CALLS = {}
         for x in callsmusic.pytgcalls.active_calls:
-            ACTV_CALLS(int(x.chat_id))
+            ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer(
                 "voice chat is not connected or already paused", show_alert=True
@@ -440,9 +436,8 @@ async def m_cb(b, cb):
         mmk = "⏭ you skipped to the next music"
         if qeue:
             qeue.pop(0)
-        ACTV_CALLS = {}
         for x in callsmusic.pytgcalls.active_calls:
-            ACTV_CALLS(int(x.chet_id))
+            ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer(
                 "assistant is not connected to voice chat !", show_alert=True
@@ -472,9 +467,8 @@ async def m_cb(b, cb):
 
     elif type_ == "leave":
         hps = "✅ **the music playback has ended**"
-        ACTV_CALLS = {}
         for x in callsmusic.pytgcalls.active_calls:
-            ACTV_CALLS(int(x.chet_id))
+            ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             try:
                 callsmusic.queues.clear(chat_id)
@@ -495,7 +489,7 @@ async def m_cb(b, cb):
 
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
 async def play(_, message: Message):
-    
+    chat_id = get_chat_id(message.chat)
     bttn = InlineKeyboardMarkup(
         [
             [
@@ -750,12 +744,10 @@ async def play(_, message: Message):
             )
             message.from_user.first_name
             await generate_cover(title, thumbnail, ctitle)
-            
-    file_path = await converter.convert(youtube.download(url))
-    ACTV_CALLS = {}
+            file_path = await converter.convert(youtube.download(url))
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS(int(x.chat_id))
-    if chat_id in ACTV_CALLS:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file_path)
         qeue = que.get(chat_id)
         s_name = title
@@ -879,10 +871,9 @@ async def lol_cb(b, cb):
     )
     await generate_cover(title, thumbnail, ctitle)
     file_path = await converter.convert(youtube.download(url))
-    ACTV_CALLS = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS(int(x.chat_id))
-    if chat_id in ACTV_CALLS:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
@@ -934,7 +925,7 @@ async def lol_cb(b, cb):
 
 @Client.on_message(command(["ytplay", f"ytplay@{BOT_USERNAME}"]) & other_filters)
 async def ytplay(_, message: Message):
-    
+    chat_id = get_chat_id(message.chat)
     bttn = InlineKeyboardMarkup(
         [
             [
@@ -1050,9 +1041,8 @@ async def ytplay(_, message: Message):
     )
     await generate_cover(title, thumbnail, ctitle)
     file_path = await converter.convert(youtube.download(url))
-    ACTV_CALLS = {}
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS(int(x.chat_id))
+        ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
@@ -1060,7 +1050,7 @@ async def ytplay(_, message: Message):
         r_by = message.from_user
         loc = file_path
         appendable = [s_name, r_by, loc]
-        qeue(appendable)
+        qeue.append(appendable)
         await lel.delete()
         await message.reply_photo(
             photo="final.png",

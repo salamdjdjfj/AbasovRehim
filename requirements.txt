@@ -1,7 +1,7 @@
 git+https://github.com/pyrogram/pyrogram@master
 tgcrypto
 youtube-search
-git+https://github.com/yt-dlp/yt-dlp@master
+yt-dlp
 py-tgcalls
 python-dotenv
 requests
@@ -14,7 +14,6 @@ future
 psutil
 wget
 motor
-pymongo
 dnspython
 heroku3
 gitpython
