@@ -1,7 +1,5 @@
 <p align="center"><a href="https://t.me/MeryemMusicBot"><img src="https://telegra.ph/file/c002baa9d43356fbb6fda.jpg"></a></p>
 
-## Heroku Deployment <img src="./etc/Kenpurple.gif" width="40px">
-The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Hesenovhuseyn/GroupMusicBot)
 
