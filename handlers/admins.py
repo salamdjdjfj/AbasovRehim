@@ -29,7 +29,7 @@ async def _(bot: Client, cmd: Message):
 
 # Back Button
 BACK_BUTTON = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🔙 Go Back", callback_data="cbback")]]
+    [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbback")]]
 )
 
 # @Client.on_message(filters.text & ~filters.private)
@@ -50,7 +50,7 @@ async def update_admin(client, message):
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
     await message.reply_text(
-        "✅ Bot **reloaded correctly !**\n✅ **Admin list** has been **updated !**"
+        "✅ Bot **düzgün yenidən yükləndi !**\n✅ **Admin siyahısı** **yeniləndi !**"
     )
 
 
@@ -60,7 +60,7 @@ async def update_admin(client, message):
 @authorized_users_only
 async def controlset(_, message: Message):
     await message.reply_text(
-        "💡 **here is the control menu of bot :**",
+        "💡 **burada botun idarəetmə menyusu var :**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
