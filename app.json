@@ -48,8 +48,6 @@
             "value": "",
             "required": true
         },
-        },
-        },
         "BOT_USERNAME": {
             "description": "fill with your bot username without @",
             "required": true,
