@@ -37,10 +37,10 @@
             "description": "create a private channel and get the channel id (give the channel username/link to bot @username_to_id_bot and get the channel id), add your bot as admin to the channel too",
             "required": true,
             "value": ""
-        },
+},
     "env": {
         "HEROKU_APP_NAME": {
-            "description": "Herokudaki uygulama ismi..",
+            "description": "Değişken için açıklama..",
             "value": "",
             "required": true
         },
