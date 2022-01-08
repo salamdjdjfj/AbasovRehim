@@ -1,5 +1,4 @@
 <p align="center"><a href="https://t.me/MeryemMusicBot"><img src="https://telegra.ph/file/c002baa9d43356fbb6fda.jpg"></a></p>
-<h3>Requirements 📝</h3>
 
 ## Heroku Deployment <img src="./etc/Kenpurple.gif" width="40px">
 The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
@@ -43,6 +42,3 @@ The easy way to host this bot, deploy to Heroku, Change the app country to Europ
 - `/block` - block people for using your bot
 - `/unblock` - unblock people you blocked for using your bot
 - `/blocklist` - show the list of all people who's blocked for using your bot
-
-## 🔎 Inline Search Support
-- just type the bot username in any chat, example: "`@VeezMusicBot Faded Alan Walker`", then bot will give you a results of the query you search in inline mode.
