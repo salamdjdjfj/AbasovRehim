@@ -38,6 +38,18 @@
             "required": true,
             "value": ""
         },
+        "HEROKU_API_KEY": {
+            "description": "Değişken için açıklama.",
+            "value": "",
+            "required": true
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Değişken için açıklama.",
+            "value": "",
+            "required": true
+        },
+        },
+        },
         "BOT_USERNAME": {
             "description": "fill with your bot username without @",
             "required": true,
