@@ -1,37 +1,10 @@
-<p align="center">
-    <br><b>🗄️ PROJECT ARCHIVED, NO LONGER MAINTAINED !!</b><br>
-</p>
-
 <p align="center"><a href="https://t.me/MeryemMusicBot"><img src="https://telegra.ph/file/c002baa9d43356fbb6fda.jpg"></a></p>
 <h3>Requirements 📝</h3>
-- FFmpeg
-- NodeJS [deb.nodesource.com](https://deb.nodesource.com/)
-- Python 3.8 or higher
-- [MongoDB](https://cloud.mongodb.com/)
-- [2nd Telegram Account](https://telegram.org/blog/themes-accounts#multiple-accounts) (needed for userbot)
 
-### 🧪 Get `SESSION_NAME` from below:
+## Heroku Deployment <img src="./etc/Kenpurple.gif" width="40px">
+The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
 
-[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@levinalab/StringSession#main.py) ``Pyrogram``
-
-### 🎖 History
-
-[![Mentioned in Awesome Python](https://awesome.re/mentioned-badge.svg)](https://github.com/levina-lab/VeezMusic)
-
-## Features 🔮
-
-- Thumbnail Support
-- Playlist Support
-- Youtube, Local playback support
-- Settings panel
-- Control with buttons
-- Userbot auto join
-- Keyboard selection support for youtube play
-- Lyrics Scrapper
-- Unlimited Queue
-- Broadcast Bot
-- Statistic Collector
-- Block / Unblock (restrict user for using your bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Hesenovhuseyn/GroupMusicBot)
 
 ## Commands 🛠
 
@@ -73,25 +46,3 @@
 
 ## 🔎 Inline Search Support
 - just type the bot username in any chat, example: "`@VeezMusicBot Faded Alan Walker`", then bot will give you a results of the query you search in inline mode.
-
-## Heroku Deployment <img src="./etc/Kenpurple.gif" width="40px">
-The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Hesenovhuseyn/GroupMusicBot)
-
-## VPS Deployment 📡
-
-```sh
-sudo apt update && apt upgrade -y
-sudo apt install python3-pip ffmpeg -y
-sudo curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
-sudo apt-get install -y nodejs
-sudo npm i -g npm
-git clone https://github.com/Hesenovhuseyn/GroupMusicBot # clone the repo.
-cd VeezMusic
-sudo pip3 install --upgrade pip
-sudo pip3 install -U -r requirements.txt
-cp example.env .env # use vim to edit ENVs
-vim .env # fill up the ENVs (Steps: press i to enter in insert mode then edit the file. Press Esc to exit the editing mode then type :wq! and press Enter key to save the file).
-sudo python3 main.py # run the bot.
-```
