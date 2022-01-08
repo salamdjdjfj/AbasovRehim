@@ -40,7 +40,7 @@
         },
     "env": {
         "HEROKU_APP_NAME": {
-            "description": "Değişken için açıklama..",
+            "description": "Herokudaki uygulama ismi..",
             "value": "",
             "required": true
         },
