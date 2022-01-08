@@ -4,6 +4,8 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Hesenovhuseyn/GroupMusicBot)
 
+http://railway.app/button
+
 ## Commands 🛠
 
 - `/play <song name>` - play song you requested
