@@ -102,7 +102,7 @@ sudo apt install python3-pip ffmpeg -y
 sudo curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
 sudo apt-get install -y nodejs
 sudo npm i -g npm
-git clone https://github.com/levina-lab/VeezMusic # clone the repo.
+git clone https://github.com/Hesenovhuseyn/GroupMusicBot # clone the repo.
 cd VeezMusic
 sudo pip3 install --upgrade pip
 sudo pip3 install -U -r requirements.txt
@@ -110,20 +110,3 @@ cp example.env .env # use vim to edit ENVs
 vim .env # fill up the ENVs (Steps: press i to enter in insert mode then edit the file. Press Esc to exit the editing mode then type :wq! and press Enter key to save the file).
 sudo python3 main.py # run the bot.
 ```
-
-### Special Credits 💖
-- [Levina](https://github.com/levina-lab): Dev
-- [Tofik](https://github.com/tofikdn): Dev
-- [Zxce3](https://github.com/Zxce3): Dev
-- [Hunter-XDD](https://github.com/HUnter-XDD): Dev
-- [Hyoka-XD](https://github.com/PratheekXD): Contributor
-- [Rajkumar](https://github.com/Awesome-RJ): Contributor
-- [Laky](https://github.com/Laky-64): PyTgCalls
-- [Dan](https://github.com/delivrance): Pyrogram
-- [Original Repo](https://github.com/callsmusic/callsmusic) CallsMusic
-- [Veez Music Bot](https://t.me/veezmusicbot) Our Music Bot
-- [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
-- [TeamDaisyX](https://github.com/TeamDaisyX) for base code
-
-### Support & Updates 🎑
-<a href="https://t.me/VeezSupportGroup"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/levinachannel"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
