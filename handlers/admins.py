@@ -331,6 +331,6 @@ async def change_volume(client, message):
     chat_id = message.chat.id
     try:
        await callsmusic.pytgcalls.change_volume_call(chat_id, volume=int(range))
-       await message.reply(f"✅ **volume set to:** ```{range}%```")
+       await message.reply(f"✅ **səs ayarlandı:** ```{range}%```")
     except Exception as e:
        await message.reply(f"**error:** {e}")
