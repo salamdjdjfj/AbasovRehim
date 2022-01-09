@@ -7,7 +7,7 @@
         "voice chat", 
         "telegram"
     ],
-    "repository": "https://github.com/levina-lab/veezmusic",
+    "repository": "https://github.com/Hesenovhuseyn/GroupMusicBot",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
@@ -39,7 +39,7 @@
             "value": ""
         },
         "HEROKU_API_KEY": {
-            "description": "Değişken için açıklama.",
+            "description": "Heroku Apı keynuzi buraya yapışdırın.",
             "value": "",
             "required": true
         },
