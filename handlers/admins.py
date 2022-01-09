@@ -210,13 +210,13 @@ async def delcmdc(_, message: Message):
         if await delcmd_is_on(message.chat.id):
             return await message.reply_text("✅ artıq aktivləşdirilib")
         await delcmd_on(chat_id)
-        await message.reply_text("🟢 activated successfully")
+        await message.reply_text("🟢 uğurla aktivləşdirildi")
     elif status == "off":
         await delcmd_off(chat_id)
-        await message.reply_text("🔴 disabled successfully")
+        await message.reply_text("🔴 uğurla aradan qaldırıldı")
     else:
         await message.reply_text(
-            "read the /help message to know how to use this command"
+            "Bu əmrdən necə istifadə edəcəyinizi bilmək üçün /help mesajını oxuyun"
         )
 
 
@@ -227,18 +227,18 @@ async def delcmdc(_, message: Message):
 async def cbpause(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 yalnız admin bu düyməyə toxuna bilər!", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
+            "❌ **hazırda heç bir musiqi oxunmur**", reply_markup=BACK_BUTTON
         )
     else:
         await callsmusic.pytgcalls.pause_stream(chat_id)
         await query.edit_message_text(
-            "⏸ music playback has been paused", reply_markup=BACK_BUTTON
+            "⏸ musiqinin səsləndirilməsi dayandırıldı", reply_markup=BACK_BUTTON
         )
 
 
@@ -246,18 +246,18 @@ async def cbpause(_, query: CallbackQuery):
 async def cbresume(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 yalnız admin bu düyməyə toxuna bilər!", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is paused**", reply_markup=BACK_BUTTON
+            "❌ **heç bir musiqi dayandırılmayıb**", reply_markup=BACK_BUTTON
         )
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
         await query.edit_message_text(
-            "▶️ music playback has been resumed", reply_markup=BACK_BUTTON
+            "▶️ musiqinin səsləndirilməsi bərpa edildi", reply_markup=BACK_BUTTON
         )
 
 
@@ -265,13 +265,13 @@ async def cbresume(_, query: CallbackQuery):
 async def cbend(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 yalnız admin bu düyməyə toxuna bilər !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
+            "❌ **hazırda heç bir musiqi oxunmur**", reply_markup=BACK_BUTTON
         )
     else:
         try:
@@ -281,7 +281,7 @@ async def cbend(_, query: CallbackQuery):
         
         await callsmusic.pytgcalls.leave_group_call(chat_id)
         await query.edit_message_text(
-            "✅ the music queue has been cleared and successfully left voice chat",
+            "✅ musiqi növbəsi təmizləndi və səsli söhbətdən uğurla çıxdı",
             reply_markup=BACK_BUTTON,
         )
 
@@ -291,13 +291,13 @@ async def cbskip(_, query: CallbackQuery):
     global que
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 yalnız admin bu düyməyə toxuna bilər !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
+            "❌ **hazırda heç bir musiqi oxunmur**", reply_markup=BACK_BUTTON
         )
     else:
         queues.task_done(chat_id)
@@ -320,7 +320,7 @@ async def cbskip(_, query: CallbackQuery):
     if not qeue:
         return
     await query.edit_message_text(
-        "⏭ **You've skipped to the next song**", reply_markup=BACK_BUTTON
+        "⏭ **Növbəti mahnıya keçdiniz**", reply_markup=BACK_BUTTON
     )
 
 
