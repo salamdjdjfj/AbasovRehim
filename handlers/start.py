@@ -66,22 +66,22 @@ async def start_private(client: Client, message: Message):
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
+                [InlineKeyboardButton("❓ Əsas bələdçi" callback_data="cbhowtouse")],
                 [
-                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("📚 Əmrlər", callback_data="cbcmds"),
+                    InlineKeyboardButton("❤️ Sahib", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Söhbət Qrupu", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/levina-lab/VeezMusic"
+                        "🌐 Botlarmız", url="https://t.me/TgRobotlarim"
                     )
                 ],
             ]
