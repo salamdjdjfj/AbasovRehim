@@ -57,7 +57,7 @@ async def start_private(client: Client, message: Message):
 
 💡 **Bütün Botun əmrlərini və onların necə işlədiyini » 📚 Əmrlər düyməsini klikləməklə öyrənin!**
 
-🔖 **Bu botdan necə istifadə edəcəyinizi bilmək üçün lütfən, » ❓ QURULUM düyməsini klikləyin!**""",
+🔖 **Bu botdan necə istifadə edəcəyinizi bilmək üçün lütfən, » ❓ Quraşdırma düyməsini klikləyin!**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -66,7 +66,7 @@ async def start_private(client: Client, message: Message):
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ QURULUM callback_data="cbhowtouse")],
+                [InlineKeyboardButton("❓ Quraşdırma callback_data="cbhowtouse")],
                 [
                     InlineKeyboardButton("📚 Əmrlər", callback_data="cbcmds"),
                     InlineKeyboardButton("❤️ Sahib", url=f"https://t.me/{OWNER_NAME}"),
