@@ -86,11 +86,11 @@ async def pause(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is currently playing**")
+        await message.reply_text("❌ **hazırda heç bir musiqi oxunmur**")
     else:
         await callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text(
-            "⏸ **Track paused.**\n\n• **To resume the playback, use the**\n» /resume command."
+            "⏸ **Trek dayandırıldı.**\n\n• **Oxumağa davam etmək üçün**\n» /resume əmrindən istifadə edin."
         )
 
 
@@ -102,11 +102,11 @@ async def resume(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is paused**")
+        await message.reply_text("❌ **heç bir musiqi dayandırılmayıb**")
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text(
-            "▶️ **Track resumed.**\n\n• **To pause the playback, use the**\n» /pause command."
+            "▶️ **Track davam etdi.**\n\n• **Oxumaya fasilə vermək üçün**\n» /pause əmrindən istifadə edin."
         )
 
 
@@ -118,14 +118,14 @@ async def stop(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is currently playing**")
+        await message.reply_text("❌ **hazırda heç bir musiqi oxunmur**")
     else:
         try:
             queues.clear(chat_id)
         except QueueEmpty:
             pass
         await callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("✅ **music playback has ended**")
+        await message.reply_text("✅ **musiqi oxutma bitdi**")
 
 
 @Client.on_message(command(["skip", f"skip@{BOT_USERNAME}", "next", f"next@{BOT_USERNAME}"]) & other_filters)
@@ -137,7 +137,7 @@ async def skip(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is currently playing**")
+        await message.reply_text("❌ **hazırda heç bir musiqi oxunmur**")
     else:
         queues.task_done(chat_id)
         
@@ -158,7 +158,7 @@ async def skip(_, message: Message):
         qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text("⏭ **You've skipped to the next song.**")
+    await message.reply_text("⏭ **Növbəti mahnıya keçdiniz.**")
 
 
 @Client.on_message(command(["auth", f"auth@{BOT_USERNAME}"]) & other_filters)
@@ -166,16 +166,16 @@ async def skip(_, message: Message):
 async def authenticate(client, message):
     global admins
     if not message.reply_to_message:
-        return await message.reply("💡 reply to message to authorize user !")
+        return await message.reply("💡 istifadəçiyə icazə vermək üçün mesaja cavab verin !")
     if message.reply_to_message.from_user.id not in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
         new_admins.append(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
         await message.reply(
-            "🟢 user authorized.\n\nfrom now on, that's user can use the admin commands."
+            "🟢 istifadəçi icazəlidir.\n\bundan sonra həmin istifadəçi admin əmrlərindən istifadə edə bilər."
         )
     else:
-        await message.reply("✅ user already authorized!")
+        await message.reply("✅ istifadəçi artıq icazəlidir!")
 
 
 @Client.on_message(command(["unauth", f"deauth@{BOT_USERNAME}"]) & other_filters)
@@ -183,16 +183,16 @@ async def authenticate(client, message):
 async def deautenticate(client, message):
     global admins
     if not message.reply_to_message:
-        return await message.reply("💡 reply to message to deauthorize user !")
+        return await message.reply("💡 istifadəçinin icazəsini ləğv etmək üçün mesaja cavab verin !")
     if message.reply_to_message.from_user.id in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
         new_admins.remove(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
         await message.reply(
-            "🔴 user deauthorized.\n\nfrom now that's user can't use the admin commands."
+            "🔴 istifadəçinin icazəsi ləğv edildi.\n\nBundan sonra həmin istifadəçi admin əmrlərindən istifadə edə bilməz."
         )
     else:
-        await message.reply("✅ user already deauthorized!")
+        await message.reply("✅ istifadəçi artıq icazəsizdir!")
 
 
 # this is a anti cmd feature
@@ -201,14 +201,14 @@ async def deautenticate(client, message):
 async def delcmdc(_, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
-            "read the /help message to know how to use this command"
+            "Bu əmrdən necə istifadə edəcəyinizi bilmək üçün /help mesajını oxuyun"
         )
     status = message.text.split(None, 1)[1].strip()
     status = status.lower()
     chat_id = message.chat.id
     if status == "on":
         if await delcmd_is_on(message.chat.id):
-            return await message.reply_text("✅ already activated")
+            return await message.reply_text("✅ artıq aktivləşdirilib")
         await delcmd_on(chat_id)
         await message.reply_text("🟢 activated successfully")
     elif status == "off":
