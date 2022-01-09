@@ -81,7 +81,7 @@ async def start_private(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Botlarmız", url="https://t.me/TgRobotlarim"
+                        "🌐 Botlarımız", url="https://t.me/TgRobotlarim"
                     )
                 ],
             ]
@@ -109,7 +109,7 @@ async def start_group(client: Client, message: Message):
         ]
     )
 
-    alive = f"**Salam {message.from_user.mention()}, mən {BOT_NAME}**\n\n✨ Bot normal işləyir\n🍀 Ustadım: [{ALIVE_NAME}](https://  t.me/{OWNER_NAME})\n✨ Bot Versiyası: `v{__version__}`\n🍀 Piroqram Versiyası: `{pyrover}`\n✨ Python Versiyası: `{__python_version__}`\n🍀 İş vaxtı Status: ` {  uptime}`\n\n**Məni bura əlavə etdiyinizə, Qrup səsli söhbətinizdə musiqi ifa etdiyinizə görə təşəkkürlər** ❤"
+    alive = f"**Salam {messag.from_user.mention()}, mən {BOT_NAME}**\n\n✨ Bot normal işləyir\n🍀 Ustadım: [{ALIVE_NAME}](https://  t.me/{OWNER_NAME})\n✨ Bot Versiyası: `v{__version__}`\n🍀 Piroqram Versiyası: `{pyrover}`\n✨ Python Versiyası: `{__python_version__}`\n🍀 İş vaxtı Status: ` {  uptime}`\n\n**Məni bura əlavə etdiyinizə, Qrup səsli söhbətinizdə musiqi ifa etdiyinizə görə təşəkkürlər** ❤"
 
     await message.reply_photo(
         photo=f"{ALIVE_IMG}",
