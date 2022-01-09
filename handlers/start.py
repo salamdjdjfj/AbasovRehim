@@ -53,16 +53,16 @@ async def _human_time_duration(seconds):
 async def start_private(client: Client, message: Message):
     await message.reply_text(
         f"""✨ **Welcome {message.from_user.mention()} !**\n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) allows you to play music on groups through the new Telegram's voice chats!**
+💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) sizə yeni Telegram-ın səsli çatları vasitəsilə qruplarda musiqi oxumağa imkan verir!**
 
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
+💡 **Bütün Botun əmrlərini və onların necə işlədiyini » 📚 Əmrlər düyməsini klikləməklə öyrənin!**
 
-🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**""",
+🔖 **Bu botdan necə istifadə edəcəyinizi bilmək üçün lütfən, » ❓ Əsas Bələdçi düyməsini klikləyin!**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
+                        "➕ Məni Qrupunuza əlavə edin ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
