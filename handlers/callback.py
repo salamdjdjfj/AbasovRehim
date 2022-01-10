@@ -187,21 +187,21 @@ async def cbowner(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""❓ **HOW TO USE THIS BOT:**
+        f"""❓ **BU BOTDAN NECƏ İSTİFADƏ EDİLMƏK:**
 
-1.) **first, add me to your group.**
-2.) **then promote me as admin and give all permissions except anonymous admin.**
-3.) **after promoting me, type /reload in group to update the admin list.**
-3.) **add @{ASSISTANT_NAME} to your group or type /join to invite her.**
-4.) **turn on the video chat first before start to play music.**
+1.) **əvvəlcə məni öz qrupuna əlavə et.**
+ 2.) **sonra məni admin kimi tanıt və anonim admin istisna olmaqla bütün icazələri ver.**
+ 3.) **məni təbliğ etdikdən sonra admin siyahısını yeniləmək üçün qrupa /reload yazın.**
+3.) **qrupunuza @{ASSISTANT_NAME} əlavə edin və ya onu dəvət etmək üçün /join yazın.**
+ 4.) **musiqi çalmağa başlamazdan əvvəl ilk olaraq video çatı yandırın.**
 
-📌 **if the userbot not joined to video chat, make sure if the video chat already turned on, or type /leave then type /join again.**
+📌 **istifadəçi robotu video çata qoşulmayıbsa, video çatın artıq aktiv olub olmadığına əmin olun və ya /çıxıb, sonra yenidən /qoşulun yazın.**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("📚 Command List", callback_data="cbhelp")],
-                [InlineKeyboardButton("🗑 Close", callback_data="close")],
+                [InlineKeyboardButton("📚 Əmrlər siyahısı", callback_data="cbhelp")],
+                [InlineKeyboardButton("🗑 Bağla", callback_data="close")],
             ]
         ),
     )
@@ -216,9 +216,9 @@ async def close(_, query: CallbackQuery):
 async def cbback(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 yalnız admin bu düyməyə toxuna bilər !", show_alert=True)
     await query.edit_message_text(
-        "**💡 here is the control menu of bot :**",
+        "**💡 burada botun idarəetmə menyusu var :**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -230,7 +230,7 @@ async def cbback(_, query: CallbackQuery):
                     InlineKeyboardButton("⏹ stop", callback_data="cbend"),
                 ],
                 [InlineKeyboardButton("⛔ anti cmd", callback_data="cbdelcmds")],
-                [InlineKeyboardButton("🗑 Close", callback_data="close")],
+                [InlineKeyboardButton("🗑 Bağla", callback_data="close")],
             ]
         ),
     )
