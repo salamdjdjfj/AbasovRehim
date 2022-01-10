@@ -66,7 +66,7 @@ async def start_private(client: Client, message: Message):
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Əsas bələdçi", callback_data="cbhowtouse")],
+                [InlineKeyboardButton("❓ Əsas bələdçi"❓,  callback_data="cbhowtouse")],
                 [
                     InlineKeyboardButton("📚 Əmrlər", callback_data="cbcmds"),
                     InlineKeyboardButton("❤️ Sahib", url=f"https://t.me/{OWNER_NAME}"),
@@ -123,13 +123,13 @@ async def start_group(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Hello** {message.from_user.mention()} !
+        f"""✨ **Salam**{message.from_user.mention()} !
 
-» **press the button below to read the explanation and see the list of available commands !**
+» **izahatı oxumaq və mövcud əmrlərin siyahısına baxmaq üçün aşağıdakı düyməni basın!**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="❓ Basic Guide", callback_data="cbguide")]]
+            [[InlineKeyboardButton(text="❓ Əsas bələdçi" ❓  callback_data="cbguide")]]
         ),
     )
 
