@@ -84,20 +84,20 @@ async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **budur əsas əmrlər**
 
-🎧 [ VOICE CHAT PLAY CMD ]
+🎧 [ SƏSLİ CHAT OYNA CMD ]
 
-/play (song name) - play song from youtube
-/ytp (song name) - play song directly from youtube 
-/stream (reply to audio) - play song using audio file
-/playlist - show the list song in queue
-/song (song name) - download song from youtube
-/search (video name) - search video from youtube detailed
-/video (video name) - download video from youtube detailed
-/lyric - (song name) lyrics scrapper
+/play (mahnı adı) - youtube-dan mahnı oxuyun
+/ytp (mahnı adı) - mahnını birbaşa youtube-dan oxuyun 
+/stream (audioya cavab) - audio fayldan istifadə edərək mahnı oxuyun
+/playlist - sıradakı mahnını göstərin
+/song (mahnının adı) - youtube-dan mahnı yükləmək
+/search (video adı) - youtube-dan ətraflı axtarış videosu
+/video (video adı) - ətraflı youtube-dan videonu endir
+/lyric - (mahnı adı) lyrics scrapper
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbhelp")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbhelp")]]
         ),
     )
 
@@ -105,17 +105,17 @@ async def cbbasic(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadvanced"))
 async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the advanced commands**
+        f"""🏮 **burada qabaqcıl əmrlər var**
 
-/start (in group) - see the bot alive status
-/reload - reload bot and refresh the admin list
-/ping - check the bot ping status
-/uptime - check the bot uptime status
-/id - show the group/user id & other
+/start (qrupda) - botun canlı statusuna baxın
+/reload - botu yenidən yükləyin və admin siyahısını yeniləyin
+/ping - botun ping statusunu yoxlayın
+/uptime - botun işləmə müddətini yoxlayın
+/id - qrup/istifadəçi identifikatorunu və digərlərini göstərin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbhelp")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbhelp")]]
         ),
     )
 
@@ -123,7 +123,7 @@ async def cbadvanced(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadmin"))
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the admin commands**
+        f"""🏮 **burada admin əmrləri var**
 
 /player - show the music playing status
 /pause - pause the music streaming
