@@ -240,23 +240,23 @@ async def cbback(_, query: CallbackQuery):
 async def cbdelcmds(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 yalnız admin bu düyməyə toxuna bilər !", show_alert=True)
     await query.edit_message_text(
-        f"""📚 **this is the feature information:**
+        f"""📚 **bu xüsusiyyət məlumatıdır:**
         
-**💡 Feature:** delete every commands sent by users to avoid spam in groups !
+**💡 Xüsusiyyət:** qruplarda spamın qarşısını almaq üçün istifadəçilər tərəfindən göndərilən hər əmrləri silin !
 
-❔ usage:**
+❔ istifadə:**
 
- 1️⃣ to turn on feature:
-     » type `/delcmd on`
+ 1️⃣ funksiyanı aktiv etmək üçün:
+      » növü `/delcmd on`
     
- 2️⃣ to turn off feature:
-     » type `/delcmd off`
+ 2️⃣funksiyanı söndürmək üçün:
+      » növü `/delcmd off`
       
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbback")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbback")]]
         ),
     )
 
@@ -264,23 +264,23 @@ async def cbdelcmds(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbcmds"))
 async def cbhelps(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""✨ **Hello** [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !
+        f"""✨ **Salam** [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !
 
-» **press the button below to read the explanation and see the list of available commands !**
+» **izahı oxumaq və mövcud əmrlərin siyahısına baxmaq üçün aşağıdakı düyməni basın !**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📚 Basic Cmd", callback_data="cblocal"),
-                    InlineKeyboardButton("📕 Advanced Cmd", callback_data="cbadven"),
+                    InlineKeyboardButton("📚 Əsas Cmd", callback_data="cblocal"),
+                    InlineKeyboardButton("📕 Qabaqcıl Cmd", callback_data="cbadven"),
                 ],
                 [
                     InlineKeyboardButton("📘 Admin Cmd", callback_data="cblamp"),
                     InlineKeyboardButton("📗 Sudo Cmd", callback_data="cblab"),
                 ],
                 [InlineKeyboardButton("📙 Owner Cmd", callback_data="cbmoon")],
-                [InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")],
+                [InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbstart")],
             ]
         ),
     )
