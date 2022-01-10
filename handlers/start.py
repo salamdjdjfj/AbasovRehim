@@ -52,12 +52,12 @@ async def _human_time_duration(seconds):
 )
 async def start_private(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Welcome {message.from_user.mention()} !**\n
+        f"""✨ **Xoş gəldiniz {message.from_user.mention()} !**\n
 💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) sizə yeni Telegram-ın səsli çatları vasitəsilə qruplarda musiqi oxumağa imkan verir!**
 
 💡 **Bütün Botun əmrlərini və onların necə işlədiyini » 📚 Əmrlər düyməsini klikləməklə öyrənin!**
 
-🔖 **Bu botdan necə istifadə edəcəyinizi bilmək üçün lütfən, » ❓ Bələdçi düyməsini klikləyin!**""",
+🔖 **Bu botdan necə istifadə edəcəyinizi bilmək üçün lütfən, » ❓ Əsas bələdçi düyməsini klikləyin!**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
