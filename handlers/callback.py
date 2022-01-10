@@ -93,7 +93,7 @@ async def cbbasic(_, query: CallbackQuery):
 /song (mahnının adı) - youtube-dan mahnı yükləmək
 /search (video adı) - youtube-dan ətraflı axtarış videosu
 /video (video adı) - ətraflı youtube-dan videonu endir
-/lyric - (mahnı adı) lyrics scrapper
+/lyrics - (mahnı adı) lyrics scrapper
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
