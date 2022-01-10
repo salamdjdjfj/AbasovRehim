@@ -125,18 +125,18 @@ async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **burada admin əmrləri var**
 
-/player - show the music playing status
-/pause - pause the music streaming
-/resume - resume the music was paused
-/skip - skip to the next song
-/end - stop music streaming
-/join - invite userbot join to your group
-/leave - order the userbot to leave your group
-/auth - authorized user for using music bot
-/unauth - unauthorized for using music bot
-/control - open the player settings panel
-/delcmd (on | off) - enable / disable del cmd feature
-/music (on / off) - disable / enable music player in your group
+/player - musiqi ifa vəziyyətini göstərin
+/pause - musiqi axınını dayandırın
+/resume - musiqi dayandırıldı
+/skip - növbəti mahnıya keçin
+/end - musiqi axını dayandırın
+/join - userbot-u qrupunuza qoşulmağa dəvət edin
+/leave - userbot-a qrupunuzu tərk etməsini əmr edin
+/auth - musiqi botundan istifadə etmək üçün səlahiyyətli istifadəçi
+/unauth - musiqi botundan istifadə üçün icazəsiz
+/control - pleyer parametrləri panelini açın
+/delcmd (on | off) - del cmd funksiyasını aktivləşdirin / söndürün
+/music (on / off) - qrupunuzdakı musiqi pleyeri söndürün / aktivləşdirin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
@@ -148,18 +148,18 @@ async def cbadmin(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the sudo commands**
+        f"""🏮 **burada sudo əmrləri var**
 
-/leaveall - order the assistant to leave from all group
-/stats - show the bot statistic
-/rmd - remove all downloaded files
-/clear - remove all .jpg files
-/eval (query) - execute code
-/sh (query) - run code
+/leaveall - köməkçiyə bütün qrupdan çıxmağı əmr edin
+/stats - bot statistikasını göstərin
+/rmd - bütün yüklənmiş faylları silin
+/clear - bütün .jpg faylları silin
+/eval (sorğu) - kodu icra edin
+/sh (sorğu) - kodu işlədin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbhelp")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbhelp")]]
         ),
     )
 
@@ -167,19 +167,19 @@ async def cbsudo(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbowner"))
 async def cbowner(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the owner commands**
+        f"""🏮 **budur sahibin əmrləri**
 
-/stats - show the bot statistic
-/broadcast (reply to message) - send a broadcast message from bot
-/block (user id - duration - reason) - block user for using your bot
-/unblock (user id - reason) - unblock user you blocked for using your bot
-/blocklist - show you the list of user was blocked for using your bot
+/stats - bot statistikasını göstərin
+/broadcast (mesaja cavab verin) - botdan yayım mesajı göndərin
+/block (istifadəçi identifikatoru - müddət - səbəb) - botunuzdan istifadə etmək üçün istifadəçini bloklayın
+/unblock (istifadəçi identifikatoru - səbəb) - botunuzdan istifadə üçün blokladığınız istifadəçini blokdan çıxarın
+/blocklist - botunuzdan istifadə üçün bloklanmış istifadəçinin siyahısını sizə göstərin
 
-📝 note: all commands owned by this bot can be executed by the owner of the bot without any exceptions.
+📝 Qeyd: bu bota məxsus bütün əmrlər heç bir istisnasız olaraq botun sahibi tərəfindən icra edilə bilər..
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbhelp")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbhelp")]]
         ),
     )
 
