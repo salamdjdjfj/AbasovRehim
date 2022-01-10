@@ -311,20 +311,20 @@ async def cblocal(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **budur əsas əmrlər**
 
-🎧 [ VOICE CHAT PLAY CMD ]
+🎧 [ SƏSLİ CHAT OYNA CMD ]
 
-/play (song name) - play song from youtube
-/ytp (song name) - play song directly from youtube 
-/stream (reply to audio) - play song using audio file
-/playlist - show the list song in queue
-/song (song name) - download song from youtube
-/search (video name) - search video from youtube detailed
-/video (video name) - download video from youtube detailed
-/lyric - (song name) lyrics scrapper
+/play (mahnı adı) - youtube-dan mahnı oxuyun
+ /ytp (mahnı adı) - mahnını birbaşa youtube-dan səsləndirin
+ /stream (audioya cavab) - audio fayldan istifadə edərək mahnı oxuyun
+/playlist - siyahı mahnısını növbədə göstərmək
+/song (mahnının adı) - youtube-dan mahnı yükləmək
+/search (video adı) - youtube-dan ətraflı axtarış videosu
+/video (video adı) - ətraflı youtube-dan videonu endir
+ /lirik - (mahnı adı) lyrics scrapper
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbcmds")]]
         ),
     )
 
@@ -332,13 +332,13 @@ async def cblocal(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadven"))
 async def cbadven(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the advanced commands**
+        f"""🏮 **burada qabaqcıl əmrlər var**
 
-/start (in group) - see the bot alive status
-/reload - reload bot and refresh the admin list
-/ping - check the bot ping status
-/uptime - check the bot uptime status
-/id - show the group/user id & other
+/start (qrupda) - botun canlı statusuna baxın
+/reload - botu yenidən yükləyin və admin siyahısını yeniləyin
+/ping - bot ping statusunu yoxlayın
+/uptime - botun işləmə müddətini yoxlayın
+/id - qrup/istifadəçi identifikatorunu və digərlərini göstərin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
