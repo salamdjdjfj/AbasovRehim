@@ -109,7 +109,7 @@ async def start_group(client: Client, message: Message):
         ]
     )
 
-    alive = f"**Salam {message.from_user.mention()}, mən {BOT_NAME}**\n\n✨ Bot normal işləyir\n🍀 Ustadım: [{ALIVE_NAME}](https://  t.me/{OWNER_NAME})\n✨ Bot Versiyası: `v{__version__}`\n🍀 Piroqram Versiyası: `{pyrover}`\n✨ Python Versiyası: `{__python_version__}`\n🍀 İş vaxtı Status: ` {  uptime}`\n\n**Məni bura əlavə etdiyinizə, Qrup səsli söhbətinizdə musiqi ifa etdiyinizə görə təşəkkürlər** ❤"
+    alive = f"**Salam {message.from_user.mention()}, i'm {BOT_NAME}**\n\n✨ Bot normal işləyir\n🍀 Ustadım: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ Bot Versiyası: `v{__version__}`\n🍀 Pyrogram Versiyası: `{pyrover}`\n✨ Python Versiyası: `{__python_version__}`\n\n**Məni buraya əlavə etdiyiniz üçün, Qrup səsli çatınızda musiqi ifa etdiyiniz üçün təşəkkürlər** ❤"
 
     await message.reply_photo(
         photo=f"{ALIVE_IMG}",
