@@ -66,7 +66,7 @@ async def start_private(client: Client, message: Message):
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Əsas bələdçi",❓ callback_data="cbhowtouse")],
+                [InlineKeyboardButton("❓ Əsas bələdçi", callback_data="cbhowtouse")],
                 [
                     InlineKeyboardButton("📚 Əmrlər", callback_data="cbcmds"),
                     InlineKeyboardButton("❤️ Sahib", url=f"https://t.me/{OWNER_NAME}"),
@@ -129,7 +129,7 @@ async def help(client: Client, message: Message):
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="❓ Əsas bələdçi",❓   callback_data="cbguide")]]
+            [[InlineKeyboardButton(text="❓ Əsas bələdçi",  callback_data="cbguide")]]
         ),
     )
 
