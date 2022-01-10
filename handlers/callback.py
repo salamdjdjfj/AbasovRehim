@@ -297,7 +297,7 @@ f"""❓ **BU BOTDAN NECƏ İSTİFADƏ EDİLMƏK:**
 3.) **add @{ASSISTANT_NAME} qrupunuza daxil olun və ya onu dəvət etmək üçün /join yazın.**
  4.) **musiqi çalmağa başlamazdan əvvəl ilk olaraq video çatı yandırın.**
 
-📌 **istifadəçi robotu video çata qoşulmayıbsa, video çatın artıq aktiv olub olmadığına əmin olun və ya yazın /leave sonra /join yazın.**
+📌 **istifadəçi robotu video çata qoşulmayıbsa, video çatın artıq aktiv olub olmadığına əmin olun və ya /leave sonra /join yazın.**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
