@@ -24,7 +24,7 @@ UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "levinachannel")
 # isi dengan username kamu tanpa simbol @
 OWNER_NAME = getenv("OWNER_NAME", "dlwrml")
 # fill with your nickname
-ALIVE_NAME = getenv("ALIVE_NAME", "Levina")
+ALIVE_NAME = getenv("ALIVE_NAME", "Sahib")
 # fill with your id as the owner of the bot
 OWNER_ID = int(os.environ.get("OWNER_ID"))
 DATABASE_URL = os.environ.get("DATABASE_URL")  # fill with your mongodb url
@@ -40,6 +40,6 @@ U_BRANCH = "main"
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
 UPSTREAM_REPO = os.environ.get(
-    "UPSTREAM_REPO", "https://github.com/levina-lab/VeezMusic"
+    "UPSTREAM_REPO", "https://github.com/Hesenovhuseyn/GroupMusicBot"
 )
 HEROKU_URL = fetch_heroku_git_url(HEROKU_API_KEY, HEROKU_APP_NAME)
