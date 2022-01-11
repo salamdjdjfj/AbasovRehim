@@ -140,7 +140,7 @@ async def cbadmin(_, query: CallbackQuery):
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbhelp")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbhelp")]]
         ),
     )
 
@@ -320,7 +320,7 @@ async def cblocal(_, query: CallbackQuery):
 /song (mahnının adı) - youtube-dan mahnı yükləmək
 /search (video adı) - youtube-dan ətraflı axtarış videosu
 /video (video adı) - ətraflı youtube-dan videonu endir
- /lirik - (mahnı adı) lyrics scrapper
+ /lyrics - (mahnı adı) lyrics scrapper
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
@@ -342,7 +342,7 @@ async def cbadven(_, query: CallbackQuery):
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbcmds")]]
         ),
     )
 
@@ -350,24 +350,24 @@ async def cbadven(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cblamp"))
 async def cblamp(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the admin commands**
+        f"""🏮 **budur admin əmrləri**
 
-/player - show the music playing status
-/pause - pause the music streaming
-/resume - resume the music was paused
-/skip - skip to the next song
-/end - stop music streaming
-/join - invite userbot join to your group
-/leave - order the userbot to leave your group
-/auth - authorized user for using music bot
-/unauth - unauthorized for using music bot
-/control - open the player settings panel
-/delcmd (on | off) - enable / disable del cmd feature
-/music (on / off) - disable / enable music player in your group
+/player - musiqi ifa vəziyyətini göstərir
+ /pause - musiqi axınını dayandırın
+ /resume - musiqinin dayandırıldığını davam etdirin
+/skip - növbəti mahnıya keçin
+ /end - musiqi axını dayandırın
+ /join - istifadəçi robotunu qrupunuza qoşulmağa dəvət edin
+/leave - istifadəçi robotuna qrupunuzu tərk etməsini əmr edin
+ /auth - musiqi botundan istifadə etmək üçün səlahiyyətli istifadəçi
+ /unauth - musiqi botundan istifadə üçün icazəsiz
+ /control - oyunçu parametrləri panelini açın
+ /delcmd (on | off) - del cmd funksiyasını aktivləşdirin / söndürün
+ /music (on / off) - qrupunuzda musiqi pleyeri söndürün / aktivləşdirin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbcmds")]]
         ),
     )
 
@@ -375,18 +375,18 @@ async def cblamp(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cblab"))
 async def cblab(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the sudo commands**
+        f"""🏮 **budur sudo əmrləri**
 
-/leaveall - order the assistant to leave from all group
-/stats - show the bot statistic
-/rmd - remove all downloaded files
-/clear - remove all .jpg files
-/eval (query) - execute code
-/sh (query) - run code
+/leaveall - köməkçiyə bütün qrupdan çıxmağı əmr edin
+ /stats - bot statistikasını göstərir
+ / rmd - bütün yüklənmiş faylları silin
+ /clear - bütün .jpg faylları silin
+ /eval (sorğu) - kodu icra edin
+ / sh (sorğu) - kodu işlədin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbcmds")]]
         ),
     )
 
@@ -394,19 +394,19 @@ async def cblab(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbmoon"))
 async def cbmoon(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **here is the owner commands**
+        f"""🏮 **budur sahibin əmrləri**
 
-/stats - show the bot statistic
-/broadcast - send a broadcast message from bot
-/block (user id - duration - reason) - block user for using your bot
-/unblock (user id - reason) - unblock user you blocked for using your bot
-/blocklist - show you the list of user was blocked for using your bot
+/stats - bot statistikasını göstərin
+/broadcast - botdan yayım mesajı göndərin
+/block (istifadəçi identifikatoru - müddət - səbəb) - istifadəçini botunuzdan istifadə etməsi üçün bloklayın
+/unblock (istifadəçi identifikatoru - səbəb) - botunuzdan istifadə etdiyinə görə blokladığınız istifadəçini blokdan çıxarın
+/blocklist - botunuzdan istifadə üçün bloklanmış istifadəçinin siyahısını sizə göstərin
 
-📝 note: all commands owned by this bot can be executed by the owner of the bot without any exceptions.
+📝 Qeyd: bu bota məxsus bütün əmrlər heç bir istisnasız olaraq botun sahibi tərəfindən icra edilə bilər..
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cbcmds")]]
         ),
     )
 
@@ -419,12 +419,12 @@ async def cmdhome(_, query: CallbackQuery):
             [
                 InlineKeyboardButton("Command Syntax", callback_data="cmdsyntax")
             ],[
-                InlineKeyboardButton("🗑 Close", callback_data="close")
+                InlineKeyboardButton("🗑 Bağla", callback_data="close")
             ]
         ]
     )
     
-    nofound = "😕 **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+    nofound = "😕 **sorğu etdiyiniz mahnını tapa bilmədim**\n\n» **düzgün mahnı adını və ya ifaçının adını da qeyd edin**"
     
     await query.edit_message_text(nofound, reply_markup=bttn)
 
@@ -432,13 +432,13 @@ async def cmdhome(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cmdsyntax"))
 async def cmdsyntax(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Command Syntax** to play music on **Voice Chat:**
+        f"""****Səsli Çatda musiqi oxutmaq üçün Sintaksisi** əmri:**
 
-• `/play (query)` - for playing music via youtube
-• `/ytp (query)` - for playing music directly via youtube
+• `/play (query)` - youtube vasitəsilə musiqi oxutmaq üçün
+ • `/ytp (query)` - birbaşa youtube vasitəsilə musiqi oxutmaq üçün
 
 ⚡ __Powered by {BOT_NAME}__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cmdhome")]]
+            [[InlineKeyboardButton("🔙 Geri qayıt", callback_data="cmdhome")]]
         ),
     )
