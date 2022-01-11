@@ -277,7 +277,7 @@ async def logswen(client: Client, message: Message, happ):
 @Client.on_message(command("restart") & filters.user(OWNER_ID))
 @_check_heroku
 async def restart(client: Client, message: Message, hap):
-    await message.reply_text("`indi yenidən başlayır, zəhmət olmasa gözləyin...``")
+    await message.reply_text("`Bot yenidən başlayır, zəhmət olmasa gözləyin...``")
     hap.restart()
 
 
