@@ -42,7 +42,7 @@ async def botstats(_, message: Message):
     disk_usage = psutil.disk_usage("/").percent
     total_users = await db.total_users_count()
     await message.reply_text(
-        text=f"**📊 stats of @{BOT_USERNAME}** \n\n**🤖 bot version:** `{__version__}` \n\n**🙎🏼 total users:** \n » **on bot pm:** `{total_users}` \n\n**💾 disk usage:** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage:** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
+        text=f"**📊 statistikası @{BOT_USERNAME}** \n\n**🤖 bot versiyası:** `{__version__}` \n\n**🙎🏼 ümumi istifadəçilər:** \n » **bot pm:** `{total_users}` \n\n**💾 disk istifadəsi:** \n » **disk sahəsi:** `{total}` \n » **istifadə olunur:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware istifadəsi:** \n » **CPU istifadəsi:** `{cpu_usage}%` \n » **RAM istifadəsi:** `{ram_usage}%`",
         parse_mode="Markdown",
         quote=True,
     )
@@ -63,7 +63,7 @@ async def broadcast_handler_open(_, m: Message):
 async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
-            "» this command for ban user from using your bot, read /help for more info !",
+            "» İstifadəçinin botunuzdan istifadə etməsini qadağan etmək üçün bu əmr, əlavə məlumat üçün oxuyun / help !",
             quote=True,
         )
         return
@@ -71,23 +71,23 @@ async def ban(c: Client, m: Message):
         user_id = int(m.command[1])
         ban_duration = m.command[2]
         ban_reason = " ".join(m.command[3:])
-        ban_log_text = f"🚷 **banned user !** \n\nuser id: `{user_id}` \nduration: `{ban_duration}` \nreason: `{ban_reason}`"
+        ban_log_text = f"🚷 **qadağan edilmiş istifadəçi !** \n\istifadəçi id: `{user_id}` \nmüddət: `{ban_duration}` \səbəb: `{ban_reason}`"
         try:
             await c.send_message(
                 user_id,
-                f"😕 sorry, you're banned!** \n\nreason: `{ban_reason}` \nduration: `{ban_duration}` day(s). \n\n**💬 message from owner: ask in @{GROUP_SUPPORT} if you think this was an mistake.",
+                f"😕 üzr istəyirik, sizə qadağa qoyulub!** \n\nsəbəb: `{ban_reason}` \nmüddət: `{ban_duration}` gün(lər).  \n\n**💬 sahibindən mesaj: daxil olun @{GROUP_SUPPORT} bunun səhv olduğunu düşünürsənsə.",
             )
-            ban_log_text += "\n\n✅ this notification was sent to that user"
+            ban_log_text += "\n\n✅ Bu bildiriş həmin istifadəçiyə göndərilib"
         except:
             traceback.print_exc()
-            ban_log_text += f"\n\n❌ **failed sent this notification to that user** \n\n`{traceback.format_exc()}`"
+            ban_log_text += f"\n\n❌ **bu bildirişi həmin istifadəçiyə göndərmək uğursuz oldu** \n\n`{traceback.format_exc()}`"
         await db.ban_user(user_id, ban_duration, ban_reason)
         print(ban_log_text)
         await m.reply_text(ban_log_text, quote=True)
     except:
         traceback.print_exc()
         await m.reply_text(
-            f"❌ an error occoured, traceback is given below:\n\n`{traceback.format_exc()}`",
+            f"❌ xəta baş verdi, geriyə izləmə aşağıda verilmişdir:\n\n`{traceback.format_exc()}`",
             quote=True,
         )
 
@@ -98,25 +98,25 @@ async def ban(c: Client, m: Message):
 async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
-            "» this command for unban user, read /help for more info !", quote=True
+            "» istifadəçinin qadağanını ləğv etmək üçün bu əmri oxuyun daha çox məlumat üçün ! /help !", quote=True
         )
         return
     try:
         user_id = int(m.command[1])
-        unban_log_text = f"🆓 **unbanned user !** \n\n**user id:**{user_id}"
+        unban_log_text = f"🆓 **banlanmamış istifadəçi !** \n\n**istifadəçi identifikatoru:**{user_id}"
         try:
-            await c.send_message(user_id, "🎊 congratulations, you was unbanned!")
-            unban_log_text += "\n\n✅ this notification was sent to that user"
+            await c.send_message(user_id, "🎊 Təbriklər, qadağan olundunuz!")
+            unban_log_text += "\n\n✅ Bu bildiriş həmin istifadəçiyə göndərilib"
         except:
             traceback.print_exc()
-            unban_log_text += f"\n\n❌ **failed sent this notification to that user** \n\n`{traceback.format_exc()}`"
+            unban_log_text += f"\n\n❌ **bu bildirişi həmin istifadəçiyə göndərmək uğursuz oldu** \n\n`{traceback.format_exc()}`"
         await db.remove_ban(user_id)
         print(unban_log_text)
         await m.reply_text(unban_log_text, quote=True)
     except:
         traceback.print_exc()
         await m.reply_text(
-            f"❌ an error occoured, traceback is given below:\n\n`{traceback.format_exc()}`",
+            f"❌xəta baş verdi, geriyə izləmə aşağıda verilmişdir:\n\n`{traceback.format_exc()}`",
             quote=True,
         )
 
@@ -134,8 +134,8 @@ async def _banned_usrs(_, m: Message):
         banned_on = banned_user["ban_status"]["banned_on"]
         ban_reason = banned_user["ban_status"]["ban_reason"]
         banned_usr_count += 1
-        text += f"🆔 **user id**: `{user_id}`\n⏱ **duration**: `{ban_duration}`\n🗓 **banned date**: `{banned_on}`\n💬 **reason**: `{ban_reason}`\n\n"
-    reply_text = f"🚷 **total banned:** `{banned_usr_count}`\n\n{text}"
+        text += f"🆔 **İstifadəçi adı**: `{user_id}`\n⏱ **müddəti**: `{ban_duration}`\n🗓 **qadağan olunmuş tarix**: `{banned_on}`\n💬 **səbəb**: `{ban_reason}`\n\n"
+    reply_text = f"🚷 **tamamilə qadağandır:** `{banned_usr_count}`\n\n{text}"
     if len(reply_text) > 4096:
         with open("banned-user-list.txt", "w") as f:
             f.write(reply_text)
