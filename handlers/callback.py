@@ -195,7 +195,7 @@ async def cbguide(_, query: CallbackQuery):
 3.) **qrupunuza @{ASSISTANT_NAME} əlavə edin və ya onu dəvət etmək üçün /join yazın.**
  4.) **musiqi çalmağa başlamazdan əvvəl ilk olaraq video çatı yandırın.**
 
-📌 **istifadəçi robotu video çata qoşulmayıbsa, video çatın artıq aktiv olub olmadığına əmin olun və ya /çıxıb, sonra yenidən /qoşulun yazın.**
+📌 **istifadəçi robotu video çata qoşulmayıbsa, video çatın artıq aktiv olub olmadığına əmin olun və ya /leave sonra /join yazın.**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
