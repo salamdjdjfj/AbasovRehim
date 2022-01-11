@@ -39,7 +39,7 @@
             "value": ""
         },
         "HEROKU_API_KEY": {
-            "description": "Heroku Apı keynuzi buraya yapışdırın.",
+            "description": "Heroku Apı keynizi buraya yapışdırın.",
             "value": "",
             "required": true
         },
@@ -66,12 +66,12 @@
         "OWNER_NAME": {
             "description": "fill with your telegram username without @",
             "required": false,
-            "value": "dlwrml"
+            "value": "HuseynH"
         },
         "ALIVE_NAME": {
             "description": "fill with the nickname of your telegram account",
             "required": false,
-            "value": "Levina"
+            "value": "Sahib"
         },
         "API_ID": {
             "description": "your Api ID from my.telegram.org/apps",
