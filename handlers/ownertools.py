@@ -153,11 +153,11 @@ BRANCH_ = U_BRANCH
 
 @Client.on_message(command("update") & filters.user(OWNER_ID))
 async def updatebot(_, message: Message):
-    msg = await message.reply_text("**updating bot, please wait for a while...**")
+    msg = await message.reply_text("**bot yenilənir, bir az gözləyin...**")
     try:
         repo = Repo()
     except GitCommandError:
-        return await msg.edit("**invalid git command !**")
+        return await msg.edit("**etibarsız git əmri!**")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "upstream" in repo.remotes:
@@ -170,7 +170,7 @@ async def updatebot(_, message: Message):
         repo.heads.main.checkout(True)
     if repo.active_branch.name != U_BRANCH:
         return await msg.edit(
-            f"**sorry, you are using costum branch named:** `{repo.active_branch.name}`!\n\nchange to `{U_BRANCH}` branch to continue update!"
+            f"** üzr istəyirik, siz kostyum filialından istifadə edirsiniz:** `{repo.active_branch.name}`!\n\nYeniləməni davam etdirmək üçün `{U_BRANCH}` filialına keçin!"
         )
     try:
         repo.create_remote("upstream", REPO_)
@@ -184,7 +184,7 @@ async def updatebot(_, message: Message):
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         await run_cmd("pip3 install --no-cache-dir -r requirements.txt")
-        await msg.edit("**update finished, restarting now...**")
+        await msg.edit("**yeniləmə tamamlandı, indi yenidən başladın...**")
         args = [sys.executable, "main.py"]
         execle(sys.executable, *args, environ)
         sys.exit()
@@ -192,7 +192,7 @@ async def updatebot(_, message: Message):
     else:
         await msg.edit("`heroku detected!`")
         await msg.edit(
-            "`updating and restarting is started, please wait for 5-10 minutes!`"
+            "`yeniləmə və yenidən başlatma başladı, lütfən 5-10 dəqiqə gözləyin!`"
         )
         ups_rem.fetch(U_BRANCH)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -204,7 +204,7 @@ async def updatebot(_, message: Message):
         try:
             remote.push(refspec="HEAD:refs/heads/main", force=True)
         except BaseException as error:
-            await msg.edit(f"🚫 **updater error** \n\nTraceBack : `{error}`")
+            await msg.edit(f"🚫 **yeniləyici xətası** \n\nTraceBack : `{error}`")
             return repo.__del__()
 
 
@@ -277,7 +277,7 @@ async def logswen(client: Client, message: Message, happ):
 @Client.on_message(command("restart") & filters.user(OWNER_ID))
 @_check_heroku
 async def restart(client: Client, message: Message, hap):
-    await message.reply_text("`restarting now, please wait...`")
+    await message.reply_text("`indi yenidən başlayır, zəhmət olmasa gözləyin...``")
     hap.restart()
 
 
@@ -307,14 +307,14 @@ async def setvar(client: Client, message: Message, app_):
 @Client.on_message(command("delvar") & filters.user(OWNER_ID))
 @_check_heroku
 async def delvar(client: Client, message: Message, app_):
-    msg = await message.reply_text(message, "`please wait...!`")
+    msg = await message.reply_text(message, "`zəhmət olmasa, gözləyin...!`")
     heroku_var = app_.config()
     _var = get_text(message)
     if not _var:
-        await msg.edit("`give a var name to delete!`")
+        await msg.edit("`silmək üçün var adı verin!`")
         return
     if _var not in heroku_var:
-        await msg.edit("`this var doesn't exists!`")
+        await msg.edit("`bu var mövcud deyil!`")
         return
-    await msg.edit(f"sucessfully deleted var `{_var}`")
+    await msg.edit(f"var uğurla silindi `{_var}`")
     del heroku_var[_var]
