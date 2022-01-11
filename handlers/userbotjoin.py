@@ -39,7 +39,7 @@ async def join_group(client, message):
         )
         return
     await message.reply_text(
-        f"✅ **uuserbot uğurla çata daxil oldu**",
+        f"✅ **userbot uğurla çata daxil oldu**",
     )
 
 
