@@ -1,6 +1,6 @@
 """
-Get id of the replied user
-Syntax: /id
+Cavab verən istifadəçinin id-sini əldə edin
+ Sintaksis: /id
 """
 
 from pyrogram import Client
