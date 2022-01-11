@@ -293,8 +293,8 @@ f"""❓ **BU BOTDAN NECƏ İSTİFADƏ EDİLMƏK:**
 
  1.) **əvvəlcə məni öz qrupuna əlavə et.**
  2.) **sonra məni admin kimi tanıt və anonim admin istisna olmaqla bütün icazələri ver.**
-3.) **məni əlavə etdikdən sonra yazın /reload admin siyahısını yeniləmək üçün qrupda.**
-3.) **add @{ASSISTANT_NAME} qrupunuza daxil olun və ya onu dəvət etmək üçün /join yazın.**
+3.) **məni əlavə etdikdən sonra /reload yazıb admin siyahısını yeniləyin.**
+3.) ** @{ASSISTANT_NAME} qrupunuza əlavə edon və ya onu dəvət etmək üçün /join yazın.**
  4.) **musiqi çalmağa başlamazdan əvvəl ilk olaraq video çatı yandırın.**
 
 📌 **istifadəçi robotu video çata qoşulmayıbsa, video çatın artıq aktiv olub olmadığına əmin olun və ya /leave sonra /join yazın.**
@@ -379,10 +379,10 @@ async def cblab(_, query: CallbackQuery):
 
 /leaveall - köməkçiyə bütün qrupdan çıxmağı əmr edin
  /stats - bot statistikasını göstərir
- / rmd - bütün yüklənmiş faylları silin
+ /rmd - bütün yüklənmiş faylları silin
  /clear - bütün .jpg faylları silin
  /eval (sorğu) - kodu icra edin
- / sh (sorğu) - kodu işlədin
+ /sh (sorğu) - kodu işlədin
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
