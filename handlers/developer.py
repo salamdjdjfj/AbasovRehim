@@ -33,7 +33,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 @sudo_users_only
 async def executor(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="__please give me some command to execute.__")
+        return await edit_or_reply(message, text="__zəhmət olmasa yerinə yetirmək üçün mənə bir əmr verin.__")
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
     except IndexError:
@@ -124,7 +124,7 @@ async def shellrunner(client, message):
                 )
             except Exception as err:
                 print(err)
-                await edit_or_reply(message, text=f"**ERROR:**\n```{err}```")
+                await edit_or_reply(message, text=f"**XƏTA:**\n```{err}```")
             output += f"**{code}**\n"
             output += process.stdout.read()[:-1].decode("utf-8")
             output += "\n"
@@ -147,7 +147,7 @@ async def shellrunner(client, message):
                 tb=exc_tb,
             )
             return await edit_or_reply(
-                message, text=f"**ERROR:**\n\n```{''.join(errors)}```"
+                message, text=f"**XƏTA:**\n\n```{''.join(errors)}```"
             )
         output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
@@ -163,6 +163,6 @@ async def shellrunner(client, message):
                 caption="`Output`",
             )
             return os.remove("output.txt")
-        await edit_or_reply(message, text=f"**OUTPUT:**\n\n```{output}```")
+        await edit_or_reply(message, text=f"**ÇIXIŞ:**\n\n```{output}```")
     else:
-        await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
+        await edit_or_reply(message, text="**ÇIXIŞ: **\n`Çıxış yoxdur`")
