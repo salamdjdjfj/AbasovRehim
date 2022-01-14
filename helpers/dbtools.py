@@ -25,7 +25,7 @@ async def handle_user_status(bot, cmd):
         await db.add_user(chat_id)
         await bot.send_message(
             LOG_CHANNEL,
-            f"**📣 bot notification.** \n\n#NEW_USER **start use your bot!** \n\n🏷 name: `{cmd.from_user.first_name}` \n📮 user id: `{cmd.from_user.id}` \n🧝🏻‍♂️ profile: [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})",
+            f"**📣 bot bildirişi.** \n\n#NEW_USER **botunuzdan istifadə etməyə başlayın!** \n\n🏷 ad: `{cmd.from_user.first_name}` \n📮 user id: `{cmd.from_user.id}` \n🧝🏻‍♂️ profil: [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})",
         )
 
     ban_status = await db.get_ban_status(chat_id)
@@ -36,7 +36,7 @@ async def handle_user_status(bot, cmd):
             await db.remove_ban(chat_id)
         else:
             await cmd.reply_text(
-                f"sorry, you're banned, ask in @{GROUP_SUPPORT} if you think this was an mistake.",
+                f"üzr istəyirik, sizə qadağa qoyulub, bunun səhv olduğunu düşünürsünüzsə, @{GROUP_SUPPORT} bölməsindən soruşun.",
                 quote=True,
             )
             return
